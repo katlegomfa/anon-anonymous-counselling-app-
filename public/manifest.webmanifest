@@ -1,1 +1,14 @@
-{"name":"Anon — A space to be heard","short_name":"Anon","description":"A privacy-minded counselling access concept by GABS Organisation.","start_url":"/","scope":"/","display":"standalone","background_color":"#fffefa","theme_color":"#102b2b","icons":[{"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "name": "Anon by GABS Organisation — A space to be heard",
+  "short_name": "Anon",
+  "description": "Explore mental wellbeing topics, practical resources and counselling support pathways at your own pace.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fbfaf6",
+  "theme_color": "#173c38",
+  "categories": ["health", "lifestyle"],
+  "icons": [
+    {"src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}
