@@ -18,11 +18,10 @@ jobs:
           distribution: temurin
           java-version: '17'
       - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
       - name: Build debug APK
         working-directory: android
-        run: |
-          gradle --version
-          gradle assembleDebug -PanonBaseUrl=https://YOUR-ANON-HOST
+        run: gradle assembleDebug -PanonBaseUrl=https://anon-anonymous-counselling-app.onrender.com
       - uses: actions/upload-artifact@v4
         with:
           name: anon-android-debug-apk
