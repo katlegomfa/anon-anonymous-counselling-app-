@@ -40,7 +40,7 @@
   <header class="top">
     <a class="brand" href="/" aria-label="Anon home">anon<span>.</span></a>
     <nav aria-label="Main navigation">
-      <a href="#support">Explore support</a><a href="#learn">Learn</a><a href="#how">How it works</a><a href="#privacy">Privacy</a>
+      <a href="#support">Explore support</a><a href="/knowledge.html">Knowledge hub</a><a href="/statistics.html">Botswana data</a><a href="/impact.html">GABS impact</a>
     </nav>
     <a class="nav-cta" href="#support">Find your next step <span aria-hidden="true">↗</span></a>
     <button id="menuToggle" class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
@@ -82,6 +82,20 @@
         <article class="value-card"><span class="card-number">01 / RESET</span><h3>Ground in the present</h3><p>Try the 5–4–3–2–1 exercise: notice five things you see, four you feel, three you hear, two you smell and one you taste. Stop if it increases distress.</p><span class="card-foot">A short sensory pause</span></article>
         <article class="value-card"><span class="card-number">02 / BREATHE</span><h3>Make room for a pause</h3><p>If comfortable, let your breathing stay natural and gentle. You don't need to force a deep breath. Stop if you feel dizzy or uncomfortable.</p><span class="card-foot">No special equipment needed</span></article>
         <article class="value-card"><span class="card-number">03 / CONNECT</span><h3>Reach towards someone</h3><p>Consider telling a trusted person what has been difficult and what kind of support would feel helpful. You can share only what you feel ready to share.</p><span class="card-foot">Connection at your pace</span></article>
+      </div>
+    </section>
+
+    
+    <section class="insights-gateway" aria-labelledby="insights-title">
+      <div class="insights-gateway-heading">
+        <p class="eyebrow">MORE THAN A DIRECTORY</p>
+        <h2 id="insights-title">Learn something useful.<br><em>See the bigger picture.</em></h2>
+        <p>Explore practical wellbeing knowledge, trusted Botswana evidence and a transparent framework for measuring GABS community impact.</p>
+      </div>
+      <div class="insights-gateway-cards">
+        <a class="insights-gateway-card" href="/knowledge.html"><span>01 / LEARN</span><h3>Knowledge hub</h3><p>Guides, practical activities and small learning journeys for everyday wellbeing.</p><b>Explore learning <i aria-hidden="true">↗</i></b></a>
+        <a class="insights-gateway-card" href="/statistics.html"><span>02 / UNDERSTAND</span><h3>Botswana evidence</h3><p>National indicators with clear dates, definitions, sources and limitations.</p><b>View the evidence <i aria-hidden="true">↗</i></b></a>
+        <a class="insights-gateway-card" href="/impact.html"><span>03 / MEASURE</span><h3>GABS impact framework</h3><p>Connect education, psychosocial support and community outreach to responsible measurement.</p><b>See the framework <i aria-hidden="true">↗</i></b></a>
       </div>
     </section>
 
@@ -130,7 +144,7 @@
         <details><summary>Is Anon completely anonymous?</summary><p>No digital service can guarantee anonymity. This prototype asks for very little information, but the hosting provider and normal internet infrastructure may process technical data. Avoid entering identifying or sensitive information.</p></details>
         <details><summary>Can I speak to a counsellor or book therapy here?</summary><p>Not at this stage. Anon is a counselling access concept and working software prototype. It does not currently provide live counsellor matching, appointments, therapy, diagnosis, video sessions or clinical follow-up.</p></details>
         <details><summary>Are the 17 support pathways available services?</summary><p>They are the 17 topic areas in the supplied architecture. They describe the intended scope; they do not confirm that practitioners, partners, appointments or treatment are available.</p></details>
-        <details><summary>What happens when I submit the demo form?</summary><p>The browser sends the selected topic, optional display name and consent flag to the prototype API. The backend records a demonstration entry locally. It is not sent to a counsellor. Please use fictional, non-sensitive information only.</p></details>
+        <details><summary>What happens when I submit the demo form?</summary><p>The browser sends only the selected topic and consent flag. If secure server-side storage is not configured, the backend rejects the request and saves nothing. When configured, a minimal demonstration record is stored in Supabase; it is not sent to a counsellor.</p></details>
         <details><summary>Does Anon provide emergency or crisis support?</summary><p>No. The website is not monitored and cannot assess risk or dispatch help. If there is immediate danger, contact local emergency services or go to the nearest emergency department.</p></details>
         <details><summary>What is needed before a real launch?</summary><p>Clinical governance, verified practitioners, safeguarding and crisis protocols, Botswana privacy and legal review, secure production data handling, tested access controls, a retention policy and operational support must be established before real users submit sensitive information.</p></details>
       </div>

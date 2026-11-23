@@ -46,3 +46,31 @@ test('homepage is served with SEO metadata, privacy content and no display-name 
   assert.match(html,/No digital service can guarantee anonymity/);
   assert.doesNotMatch(html,/id="alias"/);
 });
+
+test('new education, evidence and impact pages are served with sourced and transparent content',async t=>{
+  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+  t.after(()=>new Promise(resolve=>server.close(resolve)));
+  const base='http://127.0.0.1:'+server.address().port;
+  const knowledge=await fetch(base+'/knowledge.html');
+  assert.equal(knowledge.status,200);
+  const knowledgeHtml=await knowledge.text();
+  assert.match(knowledgeHtml,/Knowledge Hub/);
+  assert.match(knowledgeHtml,/HIV, dignity and emotional wellbeing/);
+  assert.match(knowledgeHtml,/not a substitute for care/);
+  const statistics=await fetch(base+'/statistics.html');
+  assert.equal(statistics.status,200);
+  const statisticsHtml=await statistics.text();
+  assert.match(statisticsHtml,/5.8%/);
+  assert.match(statisticsHtml,/31,233/);
+  assert.match(statisticsHtml,/WHO Mental Health Atlas/);
+  assert.match(statisticsHtml,/Consultations are not unique individuals/);
+  const impact=await fetch(base+'/impact.html');
+  assert.equal(impact.status,200);
+  const impactHtml=await impact.text();
+  assert.match(impactHtml,/No invented totals/);
+  assert.match(impactHtml,/Reporting data: not connected/);
+  assert.match(impactHtml,/HIV\/AIDS care and support/);
+  assert.match(impactHtml,/not a substitute for an approved GABS strategy/);
+  const insights=await fetch(base+'/insights.js');
+  assert.equal(insights.status,200);
+});
