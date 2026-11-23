@@ -24,7 +24,7 @@
     const query = (search?.value || '').trim().toLowerCase();
     let visible = 0;
     cards.forEach(card => {
-      const categoryMatch = activeFilter === 'all' || (card.dataset.topic || '').split(/\\s+/).includes(activeFilter);
+      const categoryMatch = activeFilter === 'all' || (card.dataset.topic || '').split(/\s+/).includes(activeFilter);
       const searchMatch = !query || ((card.dataset.search || '') + ' ' + card.textContent).toLowerCase().includes(query);
       const show = categoryMatch && searchMatch;
       card.hidden = !show;
