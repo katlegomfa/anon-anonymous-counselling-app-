@@ -95,3 +95,23 @@
 
 /* Ensure the filter controls use the interface typeface on all browsers. */
 .filter-chip{font-family:inherit;font-size:10px;font-weight:650;line-height:1.2}
+
+/* GABS profile-sourced programme activity tables */
+.dataset-programme{margin:0 0 28px}
+.dataset-programme-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 12px}
+.dataset-programme-heading h3{font:400 clamp(23px,3vw,32px)/1.1 Georgia,serif;margin:7px 0 0}
+.dataset-kicker{font-size:9px;font-weight:800;letter-spacing:1.3px;color:var(--coral)}
+.dataset-period{display:inline-flex;align-items:center;border:1px solid #cbd8cf;border-radius:20px;padding:6px 12px;color:var(--teal);font-size:10px;font-weight:750;white-space:nowrap}
+.dataset-table{min-width:620px}
+.dataset-table th:nth-child(2),.dataset-table th:nth-child(3),.dataset-table td:nth-child(2),.dataset-table td:nth-child(3){text-align:right;white-space:nowrap}
+.dataset-table td:first-child{font-weight:650;color:var(--ink)}
+.dataset-table .number-cell{font-variant-numeric:tabular-nums;font-weight:750}
+.activity-note{display:block;font-size:9px;color:var(--muted);font-weight:400;margin-top:4px;line-height:1.5}
+.dataset-row-note{font-size:9px;color:#758079;margin:7px 0 0}
+.data-provenance{padding:19px 21px;margin-top:19px;background:#f4eee5;border:1px solid #e6dac9}
+.data-provenance b{font:400 18px Georgia,serif}
+.data-provenance p{font-size:10px;color:#6c7169;line-height:1.8;margin:7px 0 0}
+.values-strip{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:17px 19px;margin-top:16px;background:#eaf0e9;border:1px solid #cbd8cf}
+.values-strip b{width:100%;font:400 17px Georgia,serif;margin-bottom:3px}
+.values-strip span{display:inline-flex;padding:6px 10px;border:1px solid #c5d5c8;border-radius:20px;color:var(--teal);font-size:9px;font-weight:750}
+@media(max-width:520px){.dataset-programme-heading{align-items:flex-start;flex-direction:column;gap:8px}.dataset-programme-heading h3{font-size:25px}.data-provenance{padding:16px}.values-strip{padding:15px}}

@@ -47,16 +47,18 @@ test('homepage is served with SEO metadata, privacy content and no display-name 
   assert.doesNotMatch(html,/id="alias"/);
 });
 
-test('new education, evidence and impact pages are served with sourced and transparent content',async t=>{
+test('education, national evidence and public GABS summary pages render with safe disclosure rules',async t=>{
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   t.after(()=>new Promise(resolve=>server.close(resolve)));
   const base='http://127.0.0.1:'+server.address().port;
+
   const knowledge=await fetch(base+'/knowledge.html');
   assert.equal(knowledge.status,200);
   const knowledgeHtml=await knowledge.text();
   assert.match(knowledgeHtml,/Knowledge Hub/);
   assert.match(knowledgeHtml,/HIV, dignity and emotional wellbeing/);
   assert.match(knowledgeHtml,/not a substitute for care/);
+
   const statistics=await fetch(base+'/statistics.html');
   assert.equal(statistics.status,200);
   const statisticsHtml=await statistics.text();
@@ -64,13 +66,29 @@ test('new education, evidence and impact pages are served with sourced and trans
   assert.match(statisticsHtml,/31,233/);
   assert.match(statisticsHtml,/WHO Mental Health Atlas/);
   assert.match(statisticsHtml,/Consultations are not unique individuals/);
+
   const impact=await fetch(base+'/impact.html');
   assert.equal(impact.status,200);
   const impactHtml=await impact.text();
-  assert.match(impactHtml,/No invented totals/);
-  assert.match(impactHtml,/Reporting data: not connected/);
-  assert.match(impactHtml,/HIV\/AIDS care and support/);
-  assert.match(impactHtml,/not a substitute for an approved GABS strategy/);
+  assert.match(impactHtml,/Detailed numerical impact figures are not published/);
+  assert.match(impactHtml,/public edition intentionally excludes detailed numerical impact tables/);
+  assert.match(impactHtml,/HIV\/AIDS Care/);
+  assert.match(impactHtml,/Child and Youth Upliftment/);
+  assert.match(impactHtml,/Wellness Education/);
+  assert.doesNotMatch(impactHtml,/activity-level session and reach figures transcribed/);
+
+  const dataResponse=await fetch(base+'/data/gabs-impact.json');
+  assert.equal(dataResponse.status,200);
+  assert.ok(dataResponse.headers.get('content-type').includes('application/json'));
+  const data=await dataResponse.json();
+  assert.equal(data.publication_status,'awaiting_written_gabs_approval');
+  assert.equal(data.numerical_impact_figures_published,false);
+  assert.equal(data.programmes.length,3);
+  assert.ok(data.programmes.every(programme=>programme.title && programme.summary));
+  assert.doesNotMatch(JSON.stringify(data),/reported_reach|sessions/);
+
+  const impactScript=await fetch(base+'/impact.js');
+  assert.equal(impactScript.status,200);
   const insights=await fetch(base+'/insights.js');
   assert.equal(insights.status,200);
 });

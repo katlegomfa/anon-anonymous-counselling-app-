@@ -1,0 +1,31 @@
+{
+  "dataset_version": 2,
+  "organisation": "Guardian Angels Botswana Society (GABS)",
+  "source": {
+    "document_title": "GABS-Public-Organisation-Profile",
+    "source_pages": [2, 3],
+    "provenance": "Programme descriptions and guiding values transcribed from the supplied public edition of the GABS organisation profile.",
+    "publication_note": "The public edition explicitly excludes detailed numerical impact tables."
+  },
+  "publication_status": "awaiting_written_gabs_approval",
+  "numerical_impact_figures_published": false,
+  "disclosure_note": "Detailed numerical programme measures are not displayed. GABS should provide explicit written approval and an authorised, dated public dataset before any numerical impact figures are published.",
+  "programmes": [
+    {
+      "id": "hiv-aids-care",
+      "title": "HIV/AIDS Care",
+      "summary": "Education, prevention awareness, counselling, referrals, home-based care, patient support and support groups. Anon may complement this work with stigma-free educational information and signposting to verified services; it does not provide testing, treatment or clinical care."
+    },
+    {
+      "id": "child-youth-upliftment",
+      "title": "Child and Youth Upliftment",
+      "summary": "Moral education, life-skills development, remedial and academic support, psychosocial care, mentoring, education access and youth empowerment. Any Anon content for children and young people requires age-appropriate design and GABS safeguarding approval."
+    },
+    {
+      "id": "wellness-education",
+      "title": "Wellness Education",
+      "summary": "Health and hygiene education, mental wellness and self-care, nutrition and lifestyle awareness, community outreach, prevention and physical fitness. Anon may support this programme through accessible wellbeing education, not diagnosis or treatment."
+    }
+  ],
+  "guiding_values": ["Compassion", "Hope", "Integrity", "Collaboration", "Inclusion"]
+}
