@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: https://anon-anonymous-counselling-app.onrender.com/sitemap.xml
