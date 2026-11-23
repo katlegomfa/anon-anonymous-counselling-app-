@@ -1,0 +1,2 @@
+const test=require('node:test');const assert=require('node:assert/strict');const {services}=require('../server');
+test('catalog contains the 17 service areas in the source architecture',()=>{assert.equal(services.length,17);assert.ok(services.includes('Online therapy'));assert.ok(services.includes('Postpartum mental health'));assert.ok(services.includes("Veterans' support"))});
