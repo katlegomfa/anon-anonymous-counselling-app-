@@ -80,7 +80,9 @@ function serveStatic(req, res) {
     '.css': 'text/css; charset=utf-8',
     '.js': 'text/javascript; charset=utf-8',
     '.svg': 'image/svg+xml',
-    '.webmanifest': 'application/manifest+json'
+    '.webmanifest': 'application/manifest+json',
+    '.txt': 'text/plain; charset=utf-8',
+    '.xml': 'application/xml; charset=utf-8'
   };
   res.writeHead(200, {
     'Content-Type': types[path.extname(full)] || 'application/octet-stream',
