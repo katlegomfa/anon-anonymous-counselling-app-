@@ -42,7 +42,7 @@ test('homepage is served with SEO metadata, privacy content and no display-name 
   assert.equal(response.status,200);
   const html=await response.text();
   assert.match(html,/<title>Anon by GABS/);
-  assert.match(html,/application\\/ld\\+json/);
+  assert.ok(html.includes('application/ld+json'));
   assert.match(html,/No digital service can guarantee anonymity/);
   assert.doesNotMatch(html,/id="alias"/);
 });
