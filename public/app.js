@@ -30,6 +30,7 @@ const resultCount=document.querySelector('#resultCount');
 const apiStatus=document.querySelector('#apiStatus');
 const catalogStatus=document.querySelector('#catalogStatus');
 const backendNote=document.querySelector('#backendNote');
+const intakeStatus=document.querySelector('#intakeStatus');
 let serviceList=fallbackServices.slice();
 let apiOnline=false;
 let catalogLive=false;
@@ -64,6 +65,7 @@ async function loadBackend(){
   try{
     const [health,catalog]=await Promise.all([healthPromise,catalogPromise]);
     apiOnline=health.status==='ok';
+    const intakeReady=health.demoIntakeConfigured===true;
     catalogLive=Array.isArray(catalog.services)&&catalog.services.length===17;
     if(Array.isArray(catalog.services)&&catalog.services.length){
       serviceList=catalog.services;
@@ -74,11 +76,15 @@ async function loadBackend(){
     apiStatus.classList.toggle('status-off',!apiOnline);
     catalogStatus.textContent=catalogLive?'17 topics loaded':'Loaded · '+serviceList.length;
     catalogStatus.classList.toggle('status-off',!catalogLive);
-    backendNote.textContent=apiOnline&&catalogLive?'The live demo API is responding and all 17 support topics loaded from the backend. No clinical service or counsellor availability is implied.':'The API responded, but the directory differs from the expected 17-topic architecture. Please review the backend catalogue.';
+    intakeStatus.textContent=intakeReady?'Secure storage ready':'Not configured';
+    intakeStatus.classList.toggle('status-off',!intakeReady);
+    backendNote.textContent=apiOnline&&catalogLive?(intakeReady?'The API and 17-topic directory are responding. Secure demo storage is configured. No clinical service or counsellor availability is implied.':'The API and 17-topic directory are responding. Demo intake is disabled until secure storage credentials are configured. No request will be saved locally.'):'The API responded, but the directory differs from the expected 17-topic architecture. Please review the backend catalogue.';
   }catch(error){
     apiStatus.textContent='Unavailable';
     apiStatus.classList.add('status-off');
     catalogStatus.textContent='Using local fallback';
+    intakeStatus.textContent='Unavailable';
+    intakeStatus.classList.add('status-off');
     catalogStatus.classList.add('status-off');
     backendNote.textContent='The live API could not be reached from this page. The topic directory is shown from a built-in fallback list; demo submissions may not work.';
   }
@@ -97,7 +103,7 @@ document.querySelector('#requestForm').addEventListener('submit',async event=>{
   submit.textContent='Submitting demonstration…';
   result.textContent='Sending a non-clinical demo entry to the application backend…';
   try{
-    const response=await fetch('/api/requests',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({service:select.value,pseudonym:document.querySelector('#alias').value,consent:document.querySelector('#consent').checked,contactPreference:'anonymous-information-only'})});
+    const response=await fetch('/api/requests',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({service:select.value,consent:document.querySelector('#consent').checked})});
     const data=await response.json();
     if(!response.ok)throw new Error(data.error||'The request could not be recorded.');
     result.textContent='Demo entry received. Reference: '+data.reference+'. '+data.message;
