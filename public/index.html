@@ -101,6 +101,7 @@
         <div class="status-head"><span>APPLICATION STATUS</span><span class="status-live"><i></i> DEMO MONITOR</span></div>
         <div class="status-row"><span>Backend API</span><b id="apiStatus" class="status-value">Checking…</b></div>
         <div class="status-row"><span>Support directory</span><b id="catalogStatus" class="status-value">Checking…</b></div>
+        <div class="status-row"><span>Demo intake storage</span><b id="intakeStatus" class="status-value">Checking…</b></div>
         <div class="status-row"><span>Operating mode</span><b class="status-value">Prototype only</b></div>
         <div class="status-row"><span>Clinical monitoring</span><b class="status-value status-off">Not provided</b></div>
         <p id="backendNote" class="backend-note" role="status" aria-live="polite">Checking application services…</p>
@@ -113,11 +114,11 @@
       <form id="requestForm" class="request-form">
         <div class="form-heading"><span>DEMO PATHWAY</span><small>About 30 seconds</small></div>
         <label for="service">Which topic would you like to explore?</label><select id="service" required><option value="">Choose a support area</option></select>
-        <label for="alias">Optional display name</label><input id="alias" maxlength="40" autocomplete="off" placeholder="e.g. Guest">
+        <p class="form-footnote">No name, contact detail or personal story is requested or stored.</p>
         <label class="consent-check"><input id="consent" type="checkbox" required><span>I understand this is a demonstration only, have read the privacy notice and will not enter sensitive information.</span></label>
         <button class="button button-primary submit-button" type="submit">Submit demo request <span>↗</span></button>
         <p id="result" class="form-result" role="status" aria-live="polite"></p>
-        <p class="form-footnote">Demo records are stored by the prototype backend. Do not use this form for real support requests.</p>
+        <p class="form-footnote">Only the selected topic and consent version are stored for up to 30 days. Do not use this form for real support requests.</p>
       </form>
     </section>
 
